@@ -13,6 +13,7 @@ import by.project.dartlen.android_di_mvp.di.scopes.ActivityScope;
 /***
  * Created by Dartlen on 30.12.2017.
  */
+
 @ActivityScope
 public class UtilPicasso {
 
@@ -22,11 +23,11 @@ public class UtilPicasso {
 
         Picasso.with(imageView.getContext())
                 .load(url)
-
                 .networkPolicy(NetworkPolicy.OFFLINE)
                 .into(imageView, new Callback() {
                     @Override
                     public void onSuccess() {
+
                     }
 
                     @Override

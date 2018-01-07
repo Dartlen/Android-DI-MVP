@@ -1,4 +1,4 @@
-package by.project.dartlen.android_di_mvp.data.remote.retrofit;
+package by.project.dartlen.android_di_mvp.data.remote.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

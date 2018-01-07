@@ -3,8 +3,6 @@ package by.project.dartlen.android_di_mvp.di.main;
 import android.app.Application;
 import android.content.Context;
 
-import javax.inject.Singleton;
-
 import dagger.Binds;
 import dagger.Module;
 

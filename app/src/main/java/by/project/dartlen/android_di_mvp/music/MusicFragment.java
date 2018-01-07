@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -17,7 +19,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import by.project.dartlen.android_di_mvp.R;
-import by.project.dartlen.android_di_mvp.data.remote.retrofit.Music;
+import by.project.dartlen.android_di_mvp.data.remote.model.Music;
 import by.project.dartlen.android_di_mvp.di.scopes.ActivityScope;
 import dagger.android.support.DaggerFragment;
 
@@ -32,6 +34,9 @@ public class MusicFragment extends DaggerFragment implements MusicContract.View{
 
     @Inject
     MusicContract.Presenter mMusicPresenter;
+
+    @Inject
+    Picasso mPicasso;
 
     @BindView(R.id.recycler_view)
     RecyclerView musicRecycler;
@@ -56,7 +61,7 @@ public class MusicFragment extends DaggerFragment implements MusicContract.View{
 
         ButterKnife.bind(this, root);
 
-        musicAdapter = new MusicAdapter();
+        musicAdapter = new MusicAdapter(mPicasso);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         musicRecycler.setLayoutManager(mLayoutManager);
         musicRecycler.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));

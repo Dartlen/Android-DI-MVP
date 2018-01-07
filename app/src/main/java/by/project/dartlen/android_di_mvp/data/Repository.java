@@ -2,7 +2,6 @@ package by.project.dartlen.android_di_mvp.data;
 
 import android.support.annotation.NonNull;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -11,7 +10,7 @@ import javax.inject.Singleton;
 import by.project.dartlen.android_di_mvp.data.remote.GetMusicCallback;
 import by.project.dartlen.android_di_mvp.data.remote.Remote;
 import by.project.dartlen.android_di_mvp.data.remote.RemoteDataSource;
-import by.project.dartlen.android_di_mvp.data.remote.retrofit.Music;
+import by.project.dartlen.android_di_mvp.data.remote.model.Music;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -41,6 +40,7 @@ public class Repository {
                 callback.onDataNotAvaliable(t.getMessage());
             }
         });*/
+
         mRemoteDataSource.getMusic(new Callback<List<Music>>() {
             @Override
             public void onResponse(@NonNull Call<List<Music>> call, @NonNull Response<List<Music>> response) {

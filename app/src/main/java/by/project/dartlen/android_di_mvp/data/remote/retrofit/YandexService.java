@@ -2,6 +2,7 @@ package by.project.dartlen.android_di_mvp.data.remote.retrofit;
 
 import java.util.List;
 
+import by.project.dartlen.android_di_mvp.data.remote.model.Music;
 import retrofit2.Call;
 import retrofit2.http.GET;
 

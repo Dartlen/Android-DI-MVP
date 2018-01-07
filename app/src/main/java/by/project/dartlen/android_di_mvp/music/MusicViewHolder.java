@@ -35,7 +35,7 @@ public class MusicViewHolder extends RecyclerView.ViewHolder{
         ButterKnife.bind(this, view);
     }
 
-    public void bind(@NonNull String url) {
+    /*public void bind(@NonNull String url) {
         UtilPicasso.loadImage(musicImageView, url);
-    }
+    }*/
 }

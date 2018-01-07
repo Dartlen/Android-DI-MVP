@@ -5,10 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import by.project.dartlen.android_di_mvp.R;
-import by.project.dartlen.android_di_mvp.data.remote.retrofit.Music;
+import by.project.dartlen.android_di_mvp.data.remote.model.Music;
 
 /***
  * Created by Dartlen on 30.12.2017.
@@ -16,8 +18,11 @@ import by.project.dartlen.android_di_mvp.data.remote.retrofit.Music;
 
 public class MusicAdapter extends RecyclerView.Adapter<MusicViewHolder>{
     private List<Music> dataMusic;
+    private Picasso mPicasso;
 
-    public MusicAdapter(){}
+    public MusicAdapter(Picasso mPicasso){
+        this.mPicasso = mPicasso;
+    }
 
     @Override
     public MusicViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -29,7 +34,13 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicViewHolder>{
     @Override
     public void onBindViewHolder(MusicViewHolder holder, int position) {
         holder.nameTextView.setText(dataMusic.get(position).getName());
-        holder.bind(dataMusic.get(position).getCover().getSmall());
+
+        //holder.bind(dataMusic.get(position).getCover().getSmall());
+        mPicasso.setIndicatorsEnabled(true);
+        mPicasso.load(dataMusic.get(position).getCover().getSmall())
+                .placeholder(R.drawable.progress_animation)
+                .into(holder.musicImageView);
+
         holder.genreTextView.setText((dataMusic.get(position).getGenres()).toString());
         holder.countsTextView.setText(dataMusic.get(position).getAlbums().toString()+" alboms,"+
         dataMusic.get(position).getTracks()+"tracks.");

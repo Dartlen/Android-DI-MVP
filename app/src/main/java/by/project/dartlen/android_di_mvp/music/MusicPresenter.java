@@ -1,7 +1,5 @@
 package by.project.dartlen.android_di_mvp.music;
 
-import android.content.Context;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.widget.Toast;
 
@@ -11,9 +9,8 @@ import javax.inject.Inject;
 
 import by.project.dartlen.android_di_mvp.data.Repository;
 import by.project.dartlen.android_di_mvp.data.remote.GetMusicCallback;
-import by.project.dartlen.android_di_mvp.data.remote.retrofit.Music;
+import by.project.dartlen.android_di_mvp.data.remote.model.Music;
 import by.project.dartlen.android_di_mvp.di.scopes.ActivityScope;
-import by.project.dartlen.android_di_mvp.utils.UtilPicasso;
 
 /***
  * Created by Dartlen on 30.12.2017.

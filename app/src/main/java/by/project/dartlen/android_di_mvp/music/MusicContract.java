@@ -4,7 +4,7 @@ import java.util.List;
 
 import by.project.dartlen.android_di_mvp.BasePresenter;
 import by.project.dartlen.android_di_mvp.BaseView;
-import by.project.dartlen.android_di_mvp.data.remote.retrofit.Music;
+import by.project.dartlen.android_di_mvp.data.remote.model.Music;
 
 /***
  * Created by Dartlen on 30.12.2017.
