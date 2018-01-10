@@ -2,9 +2,13 @@ package by.project.dartlen.android_di_mvp.music;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +25,9 @@ import butterknife.ButterKnife;
 import by.project.dartlen.android_di_mvp.R;
 import by.project.dartlen.android_di_mvp.data.remote.model.Music;
 import by.project.dartlen.android_di_mvp.di.scopes.ActivityScope;
+import by.project.dartlen.android_di_mvp.musician.MusicianFragment;
+import by.project.dartlen.android_di_mvp.musician.MusicianPresenter;
+import dagger.Lazy;
 import dagger.android.support.DaggerFragment;
 
 /***
@@ -37,6 +44,12 @@ public class MusicFragment extends DaggerFragment implements MusicContract.View{
 
     @Inject
     Picasso mPicasso;
+
+    @Inject
+    MusicianPresenter musicianPresenter;
+
+    @Inject
+    Lazy<MusicianFragment> MusicianFragmentprovider;
 
     @BindView(R.id.recycler_view)
     RecyclerView musicRecycler;
@@ -57,9 +70,20 @@ public class MusicFragment extends DaggerFragment implements MusicContract.View{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         View root = inflater.inflate(R.layout.fragment_musics, container, false);
 
         ButterKnife.bind(this, root);
+        Toolbar toolbar = (Toolbar)getActivity().findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.app_name);
+        toolbar.setNavigationIcon(null);
+        ItemClickSupport.addTo(musicRecycler)
+                        .setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+                            @Override
+                            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                                mMusicPresenter.onItemClickedItem(position);
+                            }
+                        });
 
         musicAdapter = new MusicAdapter(mPicasso);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
@@ -80,5 +104,16 @@ public class MusicFragment extends DaggerFragment implements MusicContract.View{
     @Override
     public void showMessateToast(String message, int timeMessage) {
         Toast.makeText(getContext(), message, timeMessage).show();
+    }
+
+    @Override
+    public void showItem(Music music) {
+        MusicianFragment x = MusicianFragmentprovider.get();
+        x.appendMusic(music);
+        getActivity().getSupportFragmentManager()
+                     .beginTransaction()
+                     .replace(R.id.fragment, x)
+                     .addToBackStack("musicianitem")
+                     .commit();
     }
 }

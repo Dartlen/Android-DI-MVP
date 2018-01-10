@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -32,14 +34,38 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(MusicViewHolder holder, int position) {
+    public void onBindViewHolder(final MusicViewHolder holder, final int position) {
         holder.nameTextView.setText(dataMusic.get(position).getName());
 
-        //holder.bind(dataMusic.get(position).getCover().getSmall());
         mPicasso.setIndicatorsEnabled(true);
+
         mPicasso.load(dataMusic.get(position).getCover().getSmall())
+                .networkPolicy(NetworkPolicy.OFFLINE)
                 .placeholder(R.drawable.progress_animation)
-                .into(holder.musicImageView);
+                .into(holder.musicImageView, new Callback() {
+                    @Override
+                    public void onSuccess() {
+
+                    }
+
+                    @Override
+                    public void onError() {
+
+                        mPicasso.load(dataMusic.get(position).getCover().getSmall())
+                                .error(R.drawable.ic_launcher_background)
+                                .into(holder.musicImageView, new Callback() {
+                                    @Override
+                                    public void onSuccess() {
+
+                                    }
+
+                                    @Override
+                                    public void onError() {
+
+                                    }
+                                });
+                    }
+                });
 
         holder.genreTextView.setText((dataMusic.get(position).getGenres()).toString());
         holder.countsTextView.setText(dataMusic.get(position).getAlbums().toString()+" alboms,"+

@@ -9,7 +9,6 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import by.project.dartlen.android_di_mvp.R;
-import by.project.dartlen.android_di_mvp.utils.UtilPicasso;
 
 /***
  * Created by Dartlen on 30.12.2017.

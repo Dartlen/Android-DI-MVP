@@ -13,6 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /***
  * Created by Dartlen on 07.01.2018.
  */
+
 @Module(includes = {NetworkModule.class, ApplicationModule.class})
 public class ApiInterfaceModule {
 

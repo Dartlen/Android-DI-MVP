@@ -11,5 +11,15 @@
         android:layout_height="match_parent">
     </FrameLayout>
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+        >
+
+    </android.support.v7.widget.Toolbar>
 
 </android.support.constraint.ConstraintLayout>

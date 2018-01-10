@@ -14,6 +14,7 @@ import by.project.dartlen.android_di_mvp.data.remote.retrofit.YandexService;
 import by.project.dartlen.android_di_mvp.di.main.ActivityBindingModule;
 import by.project.dartlen.android_di_mvp.di.main.ApplicationModule;
 import by.project.dartlen.android_di_mvp.di.main.PicassoModule;
+import by.project.dartlen.android_di_mvp.musician.MusicianModule;
 import dagger.BindsInstance;
 import dagger.Component;
 import dagger.android.AndroidInjector;
@@ -29,7 +30,7 @@ import dagger.android.support.DaggerApplication;
         AndroidSupportInjectionModule.class,
         RepositoryModule.class,
         PicassoModule.class,
-        ApiInterfaceModule.class
+        ApiInterfaceModule.class,
        })
 public interface AppComponent extends AndroidInjector<DaggerApplication> {
 

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="55dp"
+    android:orientation="vertical"
+    android:paddingTop="0dp">
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@color/colorAccent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="музыкальное направление" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/alboms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="альбомы" />
+
+            <TextView
+                android:id="@+id/song"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="песни" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Биография"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/descriptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Описание"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+        >
+
+    </android.support.v7.widget.Toolbar>
+
+</LinearLayout>

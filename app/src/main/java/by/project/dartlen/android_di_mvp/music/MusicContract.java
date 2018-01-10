@@ -13,9 +13,11 @@ import by.project.dartlen.android_di_mvp.data.remote.model.Music;
 public interface MusicContract {
     interface Presenter extends BasePresenter<MusicContract.View>{
         void startedFragment();
+        void onItemClickedItem(int position);
     }
     interface View extends BaseView<MusicContract.Presenter>{
         void showMusic(List<Music> data);
         void showMessateToast(String message, int timeMessage);
+        void showItem(Music music);
     }
 }

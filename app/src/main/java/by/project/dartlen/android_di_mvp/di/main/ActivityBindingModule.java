@@ -4,6 +4,7 @@ import by.project.dartlen.android_di_mvp.MainPage;
 import by.project.dartlen.android_di_mvp.data.RepositoryModule;
 import by.project.dartlen.android_di_mvp.di.scopes.ActivityScope;
 import by.project.dartlen.android_di_mvp.music.MusicModule;
+import by.project.dartlen.android_di_mvp.musician.MusicianModule;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 
@@ -14,6 +15,6 @@ import dagger.android.ContributesAndroidInjector;
 @Module
 public abstract class ActivityBindingModule {
     @ActivityScope
-    @ContributesAndroidInjector(modules = {MusicModule.class, RepositoryModule.class})
+    @ContributesAndroidInjector(modules = {MusicModule.class, RepositoryModule.class, MusicianModule.class})
     abstract MainPage mainPage();
 }
